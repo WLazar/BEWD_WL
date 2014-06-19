@@ -1,0 +1,25 @@
+<h1>SHOW</h1>
+
+<!--Comp chooses rock:
+if user chooses rock -> tie
+if user chooses paper -> user wins
+if user chooses scissors -> user loses -->
+
+      <h2>You threw:</h2>
+      <%=image_tag "rock_paper_scissors/#{@user_throw}.jpeg" %>
+      <h2><%=@user_throw.upcase%></h2>
+
+<% if @status == :win %>
+  <h1>CONGRATS! YOU WIN!</h1>
+  <%= image_tag "games/winner.gif" %>
+<% elsif @status == :tie %>
+  <h1>It's a tie!</h2>
+  <%= image_tag "games/tie.jpg" %>
+<% else %>
+  <h1>Sorry, you lose...</h1>
+  <%= image_tag "games/cat-always-wins.jpeg" %>
+<% end %>
+
+
+<%= link_to "Play again", new_rock_paper_scissor_path %>
+
