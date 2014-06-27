@@ -4,6 +4,10 @@ class StoriesController < ApplicationController
 		@story = Story.new
 	end
 
+	def show
+		@story = Story.find(params[:id])
+	end
+
 	def index 
 		@stories = Story.all
 		@story = Story.new
@@ -32,7 +36,7 @@ class StoriesController < ApplicationController
 	end
 
 	def story_params
-		params.require(:title, :link, :upvotes, :category)
+		params.require(:story).permit(:title, :link, :category)
 	end
 
 
