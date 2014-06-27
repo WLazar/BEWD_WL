@@ -1,0 +1,9 @@
+<% @urls.each do |url| %>
+	<div>
+		<h3><%= link_to url.link, url_path(url.id) %></h3>
+		<p><%= url.created_at %></p>
+	</div>
+<% end %>
+
+<br/>
+
