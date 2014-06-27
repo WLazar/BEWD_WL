@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   root 'urls#index'
 
   resources :urls, :only => [:create, :new, :show] #TODO: restrict this to just :create, :new and :show
