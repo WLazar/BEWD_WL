@@ -1,0 +1,21 @@
+<h1>Create a new story </h1>
+
+<%= form_for @story do |s| %>
+	<fieldset>
+		<div class ='fields'>
+			<%= s.label :title %>
+			<%= s.text_field :title %>
+		</div>
+		<div class ='fields'>
+			<%= s.label :link %>
+			<%= s.text_field :link %>
+		</div>
+		<div class ='fields'>
+			<%= s.label :category %>
+			<%= s.text_field :category %>
+		</div>
+	</fieldset>
+	
+	<%= s.submit %>
+
+<% end %>	

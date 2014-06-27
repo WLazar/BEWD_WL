@@ -1,0 +1,27 @@
+<h1>Welcome to Rewsly</h1>
+<% @stories.each do |s| %>
+<div>
+<h4><%= link_to s.title, s.link %></h4>
+<p><%= s.category %></p>
+<% end %>
+</div>
+
+<%= form_for @story do |s| %>
+	<fieldset>
+		<div class ='fields'>
+			<%= s.label :title %>
+			<%= s.text_field :title %>
+		</div>
+		<div class ='fields'>
+			<%= s.label :link %>
+			<%= s.text_field :link %>
+		</div>
+		<div class ='fields'>
+			<%= s.label :category %>
+			<%= s.text_field :category %>
+		</div>
+	</fieldset>
+	
+	<%= s.submit %>
+
+<% end %>	
