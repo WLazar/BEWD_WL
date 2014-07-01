@@ -5,8 +5,9 @@ MovieApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   
   root 'movies#index'
-  # resources :movies, only: [:index, :show]
-  get 'movies/:id' => 'movies#show', as: :movie
+  resources :movies
+
+end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -56,4 +57,4 @@ MovieApp::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
