@@ -6,13 +6,17 @@ require_relative 'lib/prank'
 
 # check number format
 def num_checker(num)
-		num = num.to_s
+		# KH: could do something like this to handle more variation in input.
+		# --  the gsub method substitutes everything that matches the first argument with
+		# --  the second argument. That regex just says "any non-integer"
+		num = num.to_s.gsub(/[^0-9]/, "")
 		until num.length == 10
 			puts "Please input a 10-digit telephone number (hint: it should start with your area code)"
 			num = gets.chomp
 			return num
-		else
-			num = num
+		# KH: this is causing a syntax error. not sure what it's supposed to be doing?
+		# else
+		# 	num = num
 		end
 	end
 
@@ -37,8 +41,8 @@ from_num = "+1#{from_num}"
 puts "Who would you like to prank?"
 to_name = gets.chomp
 puts "Ok, let's f with #{to_name} \n What is #{to_name}'s phone number?"
-_ = gets.to_i		
-to_num = num_checker(_) 
+_ = gets.to_i
+to_num = num_checker(_)
 
 message = Prank.new(to_name, to_num, from_name, from_num)
 
@@ -48,9 +52,9 @@ puts "Press (2) to send a yo mama's so ugly joke"
 puts "Press (3) to send a custom message"
 
 choice = gets.to_i
-	if choice == 1	
+	if choice == 1
 		puts "OK, we're going to send a yo mama's so fat joke"
-		prank = message.so_fat	
+		prank = message.so_fat
 	elsif choice == 2
 		puts "Ok, we're going to send a ya mama's so dumb joke"
 		prank - message.so_dumb
